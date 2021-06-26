@@ -9,63 +9,44 @@ import java.util.Scanner;
  */
 public class Calculator {
 
+ CalculatorEngine calcEngine = new CalculatorEngine();
+ Boolean kill = true;
 
     public void run() {
         Console.println("Welcome to my calculator!");
-        String s = Console.getStringInput("Enter a string");
-        Integer i = Console.getIntegerInput("Enter an integer");
-        Double d = Console.getDoubleInput("Enter a double.");
-        String s2 = Console.getSSI("Enter another string!");
+        while (kill) {
 
-        Console.println("The user input %s as their second string", s2);
-        Console.println("The user input %s as a string", s);
-        Console.println("The user input %s as a integer", i);
-        Console.println("The user input %s as a d", d);
-        // This is where my code begins ---------------------------------------
-/// temp code for clarity
-
-/// end temp code
-        int firstInt = Integer.parseInt(s);
-        int secondInt = Integer.parseInt(s2);
-        System.out.println(firstInt);
-
-        String operator = Console.getStringInput("Enter an Operator ( +, -, *, / )");
+        String operator = Console.getStringInput("Enter an Operator ( +, -, *, /, or Q to quit )");
 
 
-        ///// eff this code :(
-
-        Integer resultInt = null;
         switch (operator) {
+            case "Q":
+                kill = false;
+                break;
+
             case "+":
-                resultInt = firstInt + secondInt; //TODO - fetch output from calculator engine
-                System.out.printf("%s + %s = %s", firstInt, secondInt, resultInt);
+                calcEngine.addition(Console.getDoubleInput("Input First Value"), Console.getDoubleInput("Input Second Value"));
+                Console.println(String.valueOf(calcEngine.getResult()));
                 break;
 
             case "-":
-                resultInt = firstInt - secondInt; //TODO - fetch output from calculator engine
-                System.out.printf("%s - %s = %s", firstInt, secondInt, resultInt);
+                calcEngine.subtraction(Console.getDoubleInput("Input First Value"), Console.getDoubleInput("Input Second Value"));
+                Console.println(String.valueOf(calcEngine.getResult()));
                 break;
 
             case "*":
-                resultInt = firstInt * secondInt; //TODO - fetch output from calculator engine
-                System.out.printf("%s * %s = %s", firstInt, secondInt, resultInt);
+                calcEngine.multiply(Console.getDoubleInput("Input First Value"), Console.getDoubleInput("Input Second Value"));
+                Console.println(String.valueOf(calcEngine.getResult()));
                 break;
 
             case "/":
-                resultInt = firstInt / secondInt; //TODO - fetch output from calculator engine
-                if ( secondInt != 0) {
-                    System.out.printf("%s / %s = %s", firstInt, secondInt, resultInt);
-                } else {
-                    System.out.println("Err... Err...");
-                    System.out.println("Pick a real number, you fool! Not zero!");
-
-                }
-
-
+                calcEngine.divide(Console.getDoubleInput("Input First Value"), Console.getDoubleInput("Input Second Value"));
+                Console.println(String.valueOf(calcEngine.getResult()));
                 break;
 
+
+        }
+        }
         }
 
-
-    }
 }

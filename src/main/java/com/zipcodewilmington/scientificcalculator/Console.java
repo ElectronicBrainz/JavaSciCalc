@@ -25,19 +25,20 @@ public class Console {
 
 
     }
-    // second String number
-    public static String getSSI(String prompt) {
-        Scanner scanner = new Scanner(System.in);
-        println(prompt);
-        String secondUser = scanner.nextLine();
-        return secondUser;
-    }
+
 
     public static Integer getIntegerInput(String prompt) {
-        return null;
+        Scanner scanner = new Scanner(System.in);
+        println(prompt);
+        int userInput = Integer.parseInt(scanner.nextLine());
+        return userInput;
+
     }
 
     public static Double getDoubleInput(String prompt) {
-        return null;
+        Scanner scanner = new Scanner(System.in);
+        println(prompt);
+        double userInput = Double.parseDouble(scanner.nextLine());
+        return userInput;
     }
 }
