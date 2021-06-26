@@ -122,11 +122,35 @@ class ScientificCalculatorTest {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         //given
         String modeInverseLog = "inverse log";
+        Integer inputForInverseLog = 1;
+        //when
+        String result = scientificCalculator.logarithmicFunctions(modeInverseLog,inputForInverseLog);
+        //Then
+        Assert.assertEquals(10.0,result);
+    }
+
+    @Test
+    void logarithmicFunctionsForInverseNaturalLog() {
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        //given
+        String modeInverseLog = "inverse natural log";
         Integer inputForInverseLog = 10;
         //when
-        String resultForLogarithm1 = scientificCalculator.logarithmicFunctions(modeInverseLog,inputForInverseLog);
+        String result = scientificCalculator.logarithmicFunctions(modeInverseLog,inputForInverseLog);
         //Then
-        Assert.assertEquals("10000000000",resultForLogarithm1);
+        Assert.assertEquals("22026.465794806718",result);
+    }
+
+    @Test
+    void logarithmicFunctionsForLog() {
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        //given
+        String modeInverseLog = "log";
+        Integer input = 2;
+        //when
+        String result = scientificCalculator.logarithmicFunctions(modeInverseLog,input);
+        //Then
+        Assert.assertEquals("0.3010299956639812",result);
     }
 
     @Test
@@ -163,4 +187,3 @@ class ScientificCalculatorTest {
         Assert.assertEquals(Integer.valueOf(1),resultOfFactorial);
         }
     }
-}

@@ -74,21 +74,22 @@ public class ScientificCalculator {
         return result;
     }
 
-    public String logarithmicFunctions(String mode, double input) {
+    public String logarithmicFunctions(String mode, Integer input) {
         double result = 0;
+        Long resultInverseLog = 0l;
         switch (mode) {
             case "natural log":
                 result = Math.log(input);
                 break;
             case "inverse log":
-                result = Math.log10(input);
+                result = Math.pow(10,input);
                 break;
-            //case "log":
-            // result = Math.log
-            //break;
-            //case "inverse natural log":
-            // result =;
-            //break;
+            case "log":
+             result = Math.log10(input);
+            break;
+            case "inverse natural log":
+             result = Math.exp(input);
+            break;
         }
         return String.valueOf(result);
     }
