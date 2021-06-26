@@ -25,15 +25,43 @@ class ScientificCalculatorTest {
     @org.junit.jupiter.api.Test
     void displayMode() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
-        String result = scientificCalculator.DisplayMode("decimal",7);
+        Integer input = 0;
+        String result = "";
+    //given
+        input = 5;
+        String modeForBinary = "binary";
+    //when
+        result = scientificCalculator.DisplayMode(modeForBinary,input);
+    //then
         Assert.assertEquals("101",result);
+    //given
+        input = 5;
+        String modeForDecimal = "decimal";
+    //when
+        result = scientificCalculator.DisplayMode(modeForDecimal,input);
+    //then
+        Assert.assertEquals("5",result);
+    //given
+        input = 88;
+        String modeForHexaDecimal = "hexadecimal";
+    //when
+        result = scientificCalculator.DisplayMode(modeForHexaDecimal,input);
+    //then
+        Assert.assertEquals("58",result);
+    //given
+        input = 88;
+        String modeForOctal = "octal";
+    //when
+        result = scientificCalculator.DisplayMode(modeForOctal,input);
+    //then
+        Assert.assertEquals("130",result);
     }
 
     @Test
     void switchUnitsMode() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String result =scientificCalculator.switchUnitsMode("degrees",8);
-        Assert.assertEquals("0.13962634015954636",result);
+        Assert.assertEquals("458.3662361046586",result);
     }
 
     @Test
