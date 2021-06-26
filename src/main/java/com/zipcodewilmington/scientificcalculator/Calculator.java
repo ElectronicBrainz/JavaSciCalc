@@ -7,10 +7,10 @@ import java.util.Scanner;
 /**
  * Created by leon on 2/9/18.
  */
-public class MainApplication {
+public class Calculator {
 
 
-    public static void main(String[] args) {
+    public void run() {
         Console.println("Welcome to my calculator!");
         String s = Console.getStringInput("Enter a string");
         Integer i = Console.getIntegerInput("Enter an integer");
@@ -37,22 +37,22 @@ public class MainApplication {
         Integer resultInt = null;
         switch (operator) {
             case "+":
-                 resultInt = firstInt + secondInt; //TODO - fetch input from calculator engine
+                 resultInt = firstInt + secondInt; //TODO - fetch output from calculator engine
                 System.out.printf("%s + %s = %s", firstInt, secondInt, resultInt);
                 break;
 
             case "-":
-                 resultInt = firstInt - secondInt; //TODO - fetch input from calculator engine
+                 resultInt = firstInt - secondInt; //TODO - fetch output from calculator engine
                 System.out.printf("%s - %s = %s", firstInt, secondInt, resultInt);
                 break;
 
             case "*":
-                 resultInt = firstInt * secondInt; //TODO - fetch input from calculator engine
+                 resultInt = firstInt * secondInt; //TODO - fetch output from calculator engine
                 System.out.printf("%s * %s = %s", firstInt, secondInt, resultInt);
                 break;
 
             case "/":
-                 resultInt = firstInt / secondInt; //TODO - fetch input from calculator engine
+                 resultInt = firstInt / secondInt; //TODO - fetch output from calculator engine
                 if ( secondInt != 0) {
                     System.out.printf("%s / %s = %s", firstInt, secondInt, resultInt);
                } else {
