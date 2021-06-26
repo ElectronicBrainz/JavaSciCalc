@@ -7,6 +7,8 @@ import java.util.Scanner;
  */
 public class Console {
 
+
+
     public static void print(String output, Object... args) {
         System.out.printf(output, args);
     }
@@ -20,13 +22,22 @@ public class Console {
         println(prompt);
         String userInput = scanner.nextLine();
         return userInput;
+
+
+    }
+    // second String number
+    public static String getSSI(String prompt) {
+        Scanner scanner = new Scanner(System.in);
+        println(prompt);
+        String secondUser = scanner.nextLine();
+        return secondUser;
     }
 
     public static Integer getIntegerInput(String prompt) {
-        return null;
+       return null;
     }
 
     public static Double getDoubleInput(String prompt) {
-        return null;
+       return null;
     }
 }
