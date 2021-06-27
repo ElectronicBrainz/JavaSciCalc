@@ -1,6 +1,47 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import java.util.Scanner;
+
 public class ScientificCalculator {
+    public static void main(String[]args)
+    {
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        Scanner scanner = new Scanner(System.in);
+        Boolean exitProgram = false;
+        do {
+            System.out.println("Welcome to my scientific calculator!!");
+            Integer number = Console.getIntegerInput("Enter number:\n");
+            Integer inMemory = 0;
+            String options = Console.getStringInput("Choose an option from the following: \n " +
+                    "Press m - M+ Save in memory \n " +
+                    "Press c - Mc Reset Memory \n" +
+                    "Press r - Mrc Recall Current Memory \n" +
+                    "Press f - To find factorial of number \n" +
+                    "Press e = To exit calculator");
+            switch (options) {
+                case "m":
+                    inMemory = number;
+                    System.out.println("Stored in memory");
+                    break;
+                case "c":
+                    inMemory = 0;
+                    System.out.println("Value cleared");
+                    break;
+                case "r":
+                    System.out.println("Value recalled - " + number);
+                    break;
+                case "f":
+                    System.out.println("The factorial of " + number + " is:" + scientificCalculator.factorialFunction(number));
+                    break;
+                case "e":
+                    System.out.println("GoodBye!!");
+                    exitProgram = true;
+                    break;
+            }
+        }
+        while(!exitProgram);
+
+    }
     public String switchDisplayMode(String options) {
 
         return options;
