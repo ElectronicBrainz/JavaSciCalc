@@ -14,4 +14,12 @@ public class DisplayScientificCalc {
         return this.value;
     }
 
+    public void setMemoryValue(String value){
+        this.value = value;
+    }
+
+    String getMemoryValue() {
+        return this.value;
+    }
+
 }

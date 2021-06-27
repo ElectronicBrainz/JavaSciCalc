@@ -1,16 +1,24 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 public class ScientificCalculator {
     public static void main(String[]args)
     {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         DisplayScientificCalc displayScientificCalc = new DisplayScientificCalc();
         Boolean exitProgram = false;
+        Boolean isValueRecalled = false;
         Integer number =0;
          System.out.println("Welcome to my scientific calculator!!");
         do {
-            number = Console.getIntegerInput("Enter number:");
-            Integer inMemory = 0;
+            if(!isValueRecalled) {
+                number = Console.getIntegerInput("Enter number:");
+            }
+            else {
+                number = Integer.valueOf(displayScientificCalc.getMemoryValue());
+                isValueRecalled = false;
+            }
             String options = Console.getStringInput("Choose an option from the following: \n " +
                     "Press m - M+ Save in memory \n " +
                     "Press c - Mc Reset Memory \n" +
@@ -22,15 +30,16 @@ public class ScientificCalculator {
                     "Press e = To exit calculator");
             switch (options) {
                 case "m":
-                    inMemory = number;
+                    displayScientificCalc.setMemoryValue(String.valueOf(number));
                     System.out.println("Stored in memory");
                     break;
                 case "c":
-                    inMemory = 0;
+                    displayScientificCalc.setMemoryValue("");
                     System.out.println("Value cleared");
                     break;
                 case "r":
-                    System.out.println("Value recalled - " + number);
+                    isValueRecalled = true;
+                    System.out.println("Value recalled - " + displayScientificCalc.getMemoryValue());
                     break;
                 case "d":
                     Boolean exitConversion = false;
@@ -59,7 +68,10 @@ public class ScientificCalculator {
                                 exitConversion = true;
                                 break;
                         }
-                        System.out.println("The value of " + number + " is:" + displayScientificCalc.getValue());
+                        if(!exitConversion)
+                            System.out.println("The value of " + number + " is:" + displayScientificCalc.getValue());
+                        else
+                            System.out.println("Exited from conversions");
                     }
                     while(!exitConversion);
                     break;
@@ -68,43 +80,55 @@ public class ScientificCalculator {
                     System.out.println("The factorial of " + number + " is:" + scientificCalculator.factorialFunction(number));
                     break;
                 case "t":
-                    String inputMode = Console.getStringInput("Choose if input mode should be r - radians or d - degrees" +
-                            "Default value is in degrees.");
-                    if(inputMode == "r")
-                        inputMode ="radians";
+                    Boolean exitTrig = false;
+                    String inputMode = "";
+                    String optionsForTrigonometricFunction = "";
+                    do {
+                        inputMode = Console.getStringInput("Choose if input mode should be r - radians or d - degrees" +
+                                "Default value is in degrees.");
+                        if (inputMode == "r")
+                            inputMode = "radians";
+                        else
+                            inputMode = "degrees";
+
+                        optionsForTrigonometricFunction = Console.getStringInput("Choose an option from the following: \n " +
+                                "Press s - Find sine \n " +
+                                "Press c - Find cosine \n" +
+                                "Press t - Find tangent \n" +
+                                "Press i - Find inverse sine \n" +
+                                "Press o - Find inverse cosine \n" +
+                                "Press a - Find inverse tangent \n"+
+                                "Press e - To exit \n");
+
+                        switch (optionsForTrigonometricFunction) {
+                            case "s":
+                                optionsForTrigonometricFunction = "sine";
+                                displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions(optionsForTrigonometricFunction, number, inputMode));
+                                break;
+                            case "c":
+                                displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("cosine", number, inputMode));
+                                break;
+                            case "t":
+                                displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("tangent", number, inputMode));
+                                break;
+                            case "i":
+                                displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("inversesine", number, inputMode));
+                                break;
+                            case "o":
+                                displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("inversecosine", number, inputMode));
+                                break;
+                            case "a":
+                                displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("inversetan", number, inputMode));
+                                break;
+                            case "e":
+                                exitTrig = true;
+                                break;
+                        }
+                    }while(!exitTrig);
+                    if(!exitTrig)
+                        System.out.println("The "+inputMode+" value of "+optionsForTrigonometricFunction+ " is:"+displayScientificCalc.getValue());
                     else
-                        inputMode = "degrees";
-
-                    String optionsForTrigonometricFunction = Console.getStringInput("Choose an option from the following: \n " +
-                            "Press s - Find sine \n " +
-                            "Press c - Find cosine \n" +
-                            "Press t - Find tangent \n" +
-                            "Press i - Find inverse sine \n" +
-                            "Press o - Find inverse cosine \n" +
-                            "Press a - Find inverse tangent \n");
-
-                    switch(optionsForTrigonometricFunction) {
-                        case "s":
-                            optionsForTrigonometricFunction = "sine";
-                            displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions(optionsForTrigonometricFunction, number,inputMode));
-                            break;
-                        case "c":
-                            displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("cosine", number,inputMode));
-                            break;
-                        case "t":
-                            displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("tangent", number,inputMode));
-                            break;
-                        case "i":
-                            displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("inversesine", number,inputMode));
-                            break;
-                        case "o":
-                            displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("inversecosine", number,inputMode));
-                            break;
-                        case "a":
-                            displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("inversetan", number,inputMode));
-                            break;
-                    }
-                    System.out.println("The "+inputMode+" value of "+optionsForTrigonometricFunction+ " is:"+displayScientificCalc.getValue());
+                        System.out.println("Exited from Trigonometric functions");
                     break;
                 case "l":
                     String optionsForLog = Console.getStringInput("Choose an option from the following: \n " +
