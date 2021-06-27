@@ -1,12 +1,9 @@
 package com.zipcodewilmington.scientificcalculator;
 
-import java.util.Scanner;
-
 public class ScientificCalculator {
     public static void main(String[]args)
     {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
-        Scanner scanner = new Scanner(System.in);
         DisplayScientificCalc displayScientificCalc = new DisplayScientificCalc();
         Boolean exitProgram = false;
         Integer number =0;
@@ -20,6 +17,8 @@ public class ScientificCalculator {
                     "Press r - Mrc Recall Current Memory \n" +
                     "Press f - To find factorial of number \n" +
                     "Press l - To find logarithm functions of number \n" +
+                    "Press t - To find Trigonometric functions of number \n" +
+                    "Press d - To switch between binary,octal,hexadecimal and decimal \n" +
                     "Press e = To exit calculator");
             switch (options) {
                 case "m":
@@ -33,15 +32,62 @@ public class ScientificCalculator {
                 case "r":
                     System.out.println("Value recalled - " + number);
                     break;
+                case "d":
+                    String optionsForConversionFunction = Console.getStringInput("Choose an option from the following: \n " +
+                            "Press b - Find binary \n " +
+                            "Press o - Find octal \n" +
+                            "Press h - Find hexadecimal \n" +
+                            "Press d - Find decimal \n");
+                    switch(optionsForConversionFunction)
+                    {
+                        case "b":
+                            displayScientificCalc.setValue(scientificCalculator.conversionFunction("binary",number));
+                            break;
+                        case "o":
+                            displayScientificCalc.setValue(scientificCalculator.conversionFunction("octal",number));
+                            break;
+                        case "h":
+                            displayScientificCalc.setValue(scientificCalculator.conversionFunction("hexadecimal",number));
+                            break;
+                        case "d":
+                            displayScientificCalc.setValue(scientificCalculator.conversionFunction("decimal",number));
+                            break;
+                    }
+                    System.out.println("The value of " + number + " is:" + displayScientificCalc.getValue());
+                    break;
+
                 case "f":
                     System.out.println("The factorial of " + number + " is:" + scientificCalculator.factorialFunction(number));
+                    break;
+                case "t":
+                    String inputMode = Console.getStringInput("Choose if input mode should be r - radians or d - degrees" +
+                            "Default value is in degrees.");
+                    if(inputMode == "r")
+                        inputMode ="radians";
+                    else
+                        inputMode = "degrees";
+
+                    String optionsForTrigonometricFunction = Console.getStringInput("Choose an option from the following: \n " +
+                            "Press s - Find sine \n " +
+                            "Press c - Find cosine \n" +
+                            "Press t - Find tangent \n" +
+                            "Press i - Find inverse sine \n" +
+                            "Press o - Find inverse cosine \n" +
+                            "Press a - Find inverse tangent \n");
+
+                    switch(optionsForTrigonometricFunction) {
+                        case "s":
+                            displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("sine", number,inputMode));
+                            break;
+                    }
+                    System.out.println("The value is:"+displayScientificCalc.getValue());
                     break;
                 case "l":
                     String optionsForLog = Console.getStringInput("Choose an option from the following: \n " +
                             "Press l - Find log \n " +
                             "Press i - Find inverse log \n" +
                             "Press n - Find natural log \n" +
-                            "Press u - Inverse natural log \n");
+                            "Press u - Find Inverse natural log \n");
                     switch(optionsForLog)
                     {
                         case "l":
@@ -77,7 +123,7 @@ public class ScientificCalculator {
         return options;
     }
 
-    public String DisplayMode(String mode, Integer input) {
+    public String conversionFunction(String mode, Integer input) {
         String displayMode = "";
         switch (mode) {
             case "binary":

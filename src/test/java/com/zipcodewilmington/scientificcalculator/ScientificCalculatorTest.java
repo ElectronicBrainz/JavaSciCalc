@@ -3,8 +3,6 @@ package com.zipcodewilmington.scientificcalculator;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ScientificCalculatorTest {
 
     @org.junit.jupiter.api.BeforeEach
@@ -31,7 +29,7 @@ class ScientificCalculatorTest {
         input = 5;
         String modeForBinary = "binary";
         //when
-        result = scientificCalculator.DisplayMode(modeForBinary, input);
+        result = scientificCalculator.conversionFunction(modeForBinary, input);
         //then
         Assert.assertEquals("101", result);
     }
@@ -44,7 +42,7 @@ class ScientificCalculatorTest {
         input = 5;
         String modeForDecimal = "decimal";
         //when
-        result = scientificCalculator.DisplayMode(modeForDecimal, input);
+        result = scientificCalculator.conversionFunction(modeForDecimal, input);
         //then
         Assert.assertEquals("5", result);
     }
@@ -57,7 +55,7 @@ class ScientificCalculatorTest {
         input = 88;
         String modeForHexaDecimal = "hexadecimal";
         //when
-        result = scientificCalculator.DisplayMode(modeForHexaDecimal, input);
+        result = scientificCalculator.conversionFunction(modeForHexaDecimal, input);
         //then
         Assert.assertEquals("58", result);
     }
@@ -70,7 +68,7 @@ class ScientificCalculatorTest {
         input = 88;
         String modeForOctal = "octal";
     //when
-        result = scientificCalculator.DisplayMode(modeForOctal,input);
+        result = scientificCalculator.conversionFunction(modeForOctal,input);
     //then
         Assert.assertEquals("130",result);
     }
