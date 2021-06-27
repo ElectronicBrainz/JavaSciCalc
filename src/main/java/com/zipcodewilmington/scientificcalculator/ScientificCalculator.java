@@ -31,7 +31,7 @@ public class ScientificCalculator {
             switch (options) {
                 case "m":
                     displayScientificCalc.setMemoryValue(String.valueOf(number));
-                    System.out.println("Stored in memory");
+                    System.out.println(displayScientificCalc.getMemoryValue()+" is Stored in memory");
                     break;
                 case "c":
                     displayScientificCalc.setMemoryValue("");
@@ -124,10 +124,9 @@ public class ScientificCalculator {
                                 exitTrig = true;
                                 break;
                         }
-                    }while(!exitTrig);
-                    if(!exitTrig)
                         System.out.println("The "+inputMode+" value of "+optionsForTrigonometricFunction+ " is:"+displayScientificCalc.getValue());
-                    else
+                    }while(!exitTrig);
+                    if(exitTrig)
                         System.out.println("Exited from Trigonometric functions");
                     break;
                 case "l":
