@@ -7,16 +7,19 @@ public class ScientificCalculator {
     {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         Scanner scanner = new Scanner(System.in);
+        DisplayScientificCalc displayScientificCalc = new DisplayScientificCalc();
         Boolean exitProgram = false;
+        Integer number =0;
+         System.out.println("Welcome to my scientific calculator!!");
         do {
-            System.out.println("Welcome to my scientific calculator!!");
-            Integer number = Console.getIntegerInput("Enter number:\n");
+            number = Console.getIntegerInput("Enter number:\n");
             Integer inMemory = 0;
             String options = Console.getStringInput("Choose an option from the following: \n " +
                     "Press m - M+ Save in memory \n " +
                     "Press c - Mc Reset Memory \n" +
                     "Press r - Mrc Recall Current Memory \n" +
                     "Press f - To find factorial of number \n" +
+                    "Press l - To find logarithm functions of number \n" +
                     "Press e = To exit calculator");
             switch (options) {
                 case "m":
@@ -33,9 +36,36 @@ public class ScientificCalculator {
                 case "f":
                     System.out.println("The factorial of " + number + " is:" + scientificCalculator.factorialFunction(number));
                     break;
+                case "l":
+                    String optionsForLog = Console.getStringInput("Choose an option from the following: \n " +
+                            "Press l - Find log \n " +
+                            "Press i - Find inverse log \n" +
+                            "Press n - Find natural log \n" +
+                            "Press u - Inverse natural log \n");
+                    switch(optionsForLog)
+                    {
+                        case "l":
+                            displayScientificCalc.setValue(scientificCalculator.logarithmicFunctions("log",number));
+                            break;
+                        case "i":
+                            displayScientificCalc.setValue(scientificCalculator.logarithmicFunctions("inverse log",number));
+                            break;
+                        case "n":
+                            displayScientificCalc.setValue(scientificCalculator.logarithmicFunctions("natural log",number));
+                            break;
+                        case "u":
+                            displayScientificCalc.setValue(scientificCalculator.logarithmicFunctions("inverse natural log",number));
+                            break;
+                    }
+                    System.out.println("The Log value of " + number + " is:" + displayScientificCalc.getValue());
+                    break;
+
                 case "e":
                     System.out.println("GoodBye!!");
                     exitProgram = true;
+                    break;
+                default:
+                    System.out.println("Not a valid input!");
                     break;
             }
         }
