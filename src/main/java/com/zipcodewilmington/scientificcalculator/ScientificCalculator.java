@@ -9,7 +9,7 @@ public class ScientificCalculator {
         Integer number =0;
          System.out.println("Welcome to my scientific calculator!!");
         do {
-            number = Console.getIntegerInput("Enter number:\n");
+            number = Console.getIntegerInput("Enter number:");
             Integer inMemory = 0;
             String options = Console.getStringInput("Choose an option from the following: \n " +
                     "Press m - M+ Save in memory \n " +
@@ -33,27 +33,35 @@ public class ScientificCalculator {
                     System.out.println("Value recalled - " + number);
                     break;
                 case "d":
-                    String optionsForConversionFunction = Console.getStringInput("Choose an option from the following: \n " +
-                            "Press b - Find binary \n " +
-                            "Press o - Find octal \n" +
-                            "Press h - Find hexadecimal \n" +
-                            "Press d - Find decimal \n");
-                    switch(optionsForConversionFunction)
-                    {
-                        case "b":
-                            displayScientificCalc.setValue(scientificCalculator.conversionFunction("binary",number));
-                            break;
-                        case "o":
-                            displayScientificCalc.setValue(scientificCalculator.conversionFunction("octal",number));
-                            break;
-                        case "h":
-                            displayScientificCalc.setValue(scientificCalculator.conversionFunction("hexadecimal",number));
-                            break;
-                        case "d":
-                            displayScientificCalc.setValue(scientificCalculator.conversionFunction("decimal",number));
-                            break;
+                    Boolean exitConversion = false;
+
+                    do {
+                        String optionsForConversionFunction = Console.getStringInput("Choose an option from the following: \n " +
+                                "Press b - Find binary \n " +
+                                "Press o - Find octal \n" +
+                                "Press h - Find hexadecimal \n" +
+                                "Press d - Find decimal \n" +
+                                "Press e - to Exit \n");
+                        switch (optionsForConversionFunction) {
+                            case "b":
+                                displayScientificCalc.setValue(scientificCalculator.conversionFunction("binary", number));
+                                break;
+                            case "o":
+                                displayScientificCalc.setValue(scientificCalculator.conversionFunction("octal", number));
+                                break;
+                            case "h":
+                                displayScientificCalc.setValue(scientificCalculator.conversionFunction("hexadecimal", number));
+                                break;
+                            case "d":
+                                displayScientificCalc.setValue(scientificCalculator.conversionFunction("decimal", number));
+                                break;
+                            case "e":
+                                exitConversion = true;
+                                break;
+                        }
+                        System.out.println("The value of " + number + " is:" + displayScientificCalc.getValue());
                     }
-                    System.out.println("The value of " + number + " is:" + displayScientificCalc.getValue());
+                    while(!exitConversion);
                     break;
 
                 case "f":
@@ -77,10 +85,26 @@ public class ScientificCalculator {
 
                     switch(optionsForTrigonometricFunction) {
                         case "s":
-                            displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("sine", number,inputMode));
+                            optionsForTrigonometricFunction = "sine";
+                            displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions(optionsForTrigonometricFunction, number,inputMode));
+                            break;
+                        case "c":
+                            displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("cosine", number,inputMode));
+                            break;
+                        case "t":
+                            displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("tangent", number,inputMode));
+                            break;
+                        case "i":
+                            displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("inversesine", number,inputMode));
+                            break;
+                        case "o":
+                            displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("inversecosine", number,inputMode));
+                            break;
+                        case "a":
+                            displayScientificCalc.setValue(scientificCalculator.trigonometricFunctions("inversetan", number,inputMode));
                             break;
                     }
-                    System.out.println("The value is:"+displayScientificCalc.getValue());
+                    System.out.println("The "+inputMode+" value of "+optionsForTrigonometricFunction+ " is:"+displayScientificCalc.getValue());
                     break;
                 case "l":
                     String optionsForLog = Console.getStringInput("Choose an option from the following: \n " +
