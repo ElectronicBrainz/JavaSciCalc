@@ -36,9 +36,17 @@ public class Console {
     }
 
     public static Double getDoubleInput(String prompt) {
-        Scanner scanner = new Scanner(System.in);
-        println(prompt);
-        double userInput = Double.parseDouble(scanner.nextLine());
+       double userInput = 0;
+        try {
+            Scanner scanner = new Scanner(System.in);
+            println(prompt);
+            userInput = Double.parseDouble(scanner.nextLine());
+
+        } catch (Exception e) {
+            Console.println("I thought I told you...");
+            getDoubleInput("Input Number an actual number");
+
+        }
         return userInput;
     }
 }

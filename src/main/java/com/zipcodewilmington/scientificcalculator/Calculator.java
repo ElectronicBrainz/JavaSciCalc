@@ -8,7 +8,6 @@ public class Calculator {
 
     CalculatorEngine calcEngine = new CalculatorEngine();
     PersonalFunctionality persFunc = new PersonalFunctionality();
-    CalculatorDisplay display = new CalculatorDisplay();
     Boolean kill = false;
 
     public void run() {
@@ -68,8 +67,7 @@ public class Calculator {
                     break;
 
                 case "C":
-                    for (int i = 0; i < 50; ++i) System.out.println();
-                 /*   Console.println("                                                         "
+                    Console.println("                                                         "
                             + "\n" + "                                                         "
                             + "\n" + "                                                         "
                             + "\n" + "                                                         "
@@ -91,7 +89,7 @@ public class Calculator {
                             + "\n" + "                                                         "
                             + "\n" + "                                                         "
                             + "\n" + "                                                         "
-                            + "\n"); */
+                            + "\n");
                     break;
             }
         }
