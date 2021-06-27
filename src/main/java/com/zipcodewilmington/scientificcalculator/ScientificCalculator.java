@@ -48,28 +48,43 @@ public class ScientificCalculator {
         String result = "";
         switch (mode) {
             case "sine":
-                trignometricResult = Math.toDegrees(Math.sin(input));
+                if(inputMode == "degrees")
+                    trignometricResult = Math.sin(Math.toRadians(input));
+                else
+                    trignometricResult = Math.sin(input);
                 break;
             case "tangent":
-                trignometricResult = Math.tan(input);
+                if(inputMode == "degrees")
+                    trignometricResult = Math.tan(Math.toRadians(input));
+                else
+                    trignometricResult = Math.tan(input);
                 break;
             case "cosine":
-                trignometricResult = Math.cos(input);
+                if(inputMode == "degrees")
+                    trignometricResult = Math.cos(Math.toRadians(input));
+                else
+                    trignometricResult = Math.cos(input);
                 break;
             case "inversesine":
-                trignometricResult = Math.asin(input);
+                if(inputMode == "degrees")
+                    trignometricResult = Math.toDegrees(Math.asin(input));
+                else
+                    trignometricResult = Math.asin(input);
                 break;
             case "inversetan":
-                trignometricResult = Math.atan(input);
+                if(inputMode == "degrees")
+                    trignometricResult = Math.toDegrees(Math.atan(input));
+                else
+                    trignometricResult = Math.atan(input);
                 break;
             case "inversecosine":
-                trignometricResult = Math.acos(input);
+                if(inputMode == "degrees")
+                    trignometricResult = Math.toDegrees(Math.acos(input));
+                else
+                    trignometricResult = Math.acos(input);
                 break;
         }
         result = String.valueOf(trignometricResult);
-        if (inputMode == "degrees") {
-            result = switchUnitsMode(inputMode, input);
-        }
 
         return result;
     }

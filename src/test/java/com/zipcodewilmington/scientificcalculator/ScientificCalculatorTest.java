@@ -91,17 +91,150 @@ class ScientificCalculatorTest {
     }
 
     @Test
-    void trigonometricFunctions() {
+    void trigonometricFunctionsForSineDegree() {
         //given
         ScientificCalculator scientificCalculator = new ScientificCalculator();
-//        //when
-//        String resultForRadians = scientificCalculator.trigonometricFunctions("sine",10,"radians");
-//        //then
-//        Assert.assertEquals("-0.5440211108893698",resultForRadians);
+        String mode = "sine";
+        Integer input = 8;
+        String inputMode = "degrees";
         //when
-        String resultForDegrees = scientificCalculator.trigonometricFunctions("sine",10,"degrees");
+        String result = scientificCalculator.trigonometricFunctions(mode,input,inputMode);
         //then
-        Assert.assertEquals("-0.5440211108893698",resultForDegrees);
+        Assert.assertEquals("0.13917310096006544",result);
+    }
+
+    @Test
+    void trigonometricFunctionsForSineRadian() {
+        //given
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        String mode = "sine";
+        Integer input = 8;
+        String inputMode = "radians";
+        //when
+        String result = scientificCalculator.trigonometricFunctions(mode,input,inputMode);
+        //then
+        Assert.assertEquals("0.9893582466233818",result);
+    }
+
+    @Test
+    void trigonometricFunctionsForCosDegrees() {
+        //given
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        String mode = "cosine";
+        Integer input = 8;
+        String inputMode = "degrees";
+        //when
+        String result = scientificCalculator.trigonometricFunctions(mode,input,inputMode);
+        //then
+        Assert.assertEquals("0.9902680687415704",result);
+    }
+    @Test
+    void trigonometricFunctionsForCosRadians() {
+        //given
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        String mode = "cosine";
+        Integer input = 8;
+        String inputMode = "radians";
+        //when
+        String result = scientificCalculator.trigonometricFunctions(mode,input,inputMode);
+        //then
+        Assert.assertEquals("-0.14550003380861354",result);
+    }
+    @Test
+    void trigonometricFunctionsForTanRadians() {
+        //given
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        String mode = "tangent";
+        Integer input = 8;
+        String inputMode = "radians";
+        //when
+        String result = scientificCalculator.trigonometricFunctions(mode,input,inputMode);
+        //then
+        Assert.assertEquals("-6.799711455220379",result);
+    }
+    @Test
+    void trigonometricFunctionsForTanDegrees() {
+        //given
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        String mode = "tangent";
+        Integer input = 8;
+        String inputMode = "degrees";
+        //when
+        String result = scientificCalculator.trigonometricFunctions(mode,input,inputMode);
+        //then
+        Assert.assertEquals("0.14054083470239145",result);
+    }
+    @Test
+    void trigonometricFunctionsForInverseTanDegrees() {
+        //given
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        String mode = "inversetan";
+        Integer input = 8;
+        String inputMode = "degrees";
+        //when
+        String result = scientificCalculator.trigonometricFunctions(mode,input,inputMode);
+        //then
+        Assert.assertEquals("82.87498365109819",result);
+    }
+    @Test
+    void trigonometricFunctionsForInverseTanRadians() {
+        //given
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        String mode = "inversetan";
+        Integer input = 8;
+        String inputMode = "radians";
+        //when
+        String result = scientificCalculator.trigonometricFunctions(mode,input,inputMode);
+        //then
+        Assert.assertEquals("1.446441332248135",result);
+    }
+    @Test
+    void trigonometricFunctionsForInverseSineRadians() {
+        //given
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        String mode = "inversesine";
+        Integer input = 1;
+        String inputMode = "radians";
+        //when
+        String result = scientificCalculator.trigonometricFunctions(mode,input,inputMode);
+        //then
+        Assert.assertEquals("1.5707963267948966",result);
+    }
+    @Test
+    void trigonometricFunctionsForInverseSineDegrees() {
+        //given
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        String mode = "inversesine";
+        Integer input = 1;
+        String inputMode = "degrees";
+        //when
+        String result = scientificCalculator.trigonometricFunctions(mode,input,inputMode);
+        //then
+        Assert.assertEquals("90.0",result);
+    }
+    @Test
+    void trigonometricFunctionsForInverseCosDegrees() {
+        //given
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        String mode = "inversecosine";
+        Integer input = 1;
+        String inputMode = "degrees";
+        //when
+        String result = scientificCalculator.trigonometricFunctions(mode,input,inputMode);
+        //then
+        Assert.assertEquals("0.0",result);
+    }
+    @Test
+    void trigonometricFunctionsForInverseCosRadians() {
+        //given
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        String mode = "inversecosine";
+        Integer input = 1;
+        String inputMode = "radians";
+        //when
+        String result = scientificCalculator.trigonometricFunctions(mode,input,inputMode);
+        //then
+        Assert.assertEquals("0.0",result);
     }
 
     @Test
@@ -126,7 +259,7 @@ class ScientificCalculatorTest {
         //when
         String result = scientificCalculator.logarithmicFunctions(modeInverseLog,inputForInverseLog);
         //Then
-        Assert.assertEquals(10.0,result);
+        Assert.assertEquals(10.0,Double.valueOf(result),Double.valueOf(result));
     }
 
     @Test
