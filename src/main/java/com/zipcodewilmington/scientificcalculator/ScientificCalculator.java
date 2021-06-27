@@ -106,7 +106,7 @@ public class ScientificCalculator {
              result = Math.exp(input);
             break;
         }
-        return String.valueOf(result);
+        return String.format("%.9f",result);
     }
 
     public Integer factorialFunction(Integer input) {
