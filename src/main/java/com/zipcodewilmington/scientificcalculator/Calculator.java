@@ -11,14 +11,15 @@ public class Calculator {
 
  CalculatorEngine calcEngine = new CalculatorEngine();
  PersonalFunctionality persFunc = new PersonalFunctionality();
+ CalculatorDisplay display = new CalculatorDisplay();
  Boolean kill = false;
 
     public void run() {
         Console.println("Welcome to my calculator!");
         while (!kill) {
 
-        String operator = Console.getStringInput("Enter an Operator ( +, -, *, /, SquareRoot, Square, Exponent, Inverse or Q to quit (Listen To Many, Speak To Few)");
-
+        String operator = Console.getStringInput("Enter an Operator ( +, -, *, /, SquareRoot, Square, Exponent, Inverse or Q to quit (What's Downtown?)");
+        Double currentValue = display.currentValue();
 
         switch (operator) {
             case "Q":
@@ -65,8 +66,8 @@ public class Calculator {
                 Console.println(String.valueOf(calcEngine.getResult()));
                 break;
 
-            case "Listen To Many, Speak To Few":
-                persFunc.hamletScript();
+            case "What's Downtown?":
+                Console.println(persFunc.song());
                 break;
         }
         }

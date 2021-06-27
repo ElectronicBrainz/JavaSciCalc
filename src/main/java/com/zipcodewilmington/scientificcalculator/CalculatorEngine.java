@@ -2,7 +2,6 @@ package com.zipcodewilmington.scientificcalculator;
 
 public class CalculatorEngine {
 
-    PersonalFunctionality persFunc = new PersonalFunctionality();
     private Double result;
 
         public Double addition(Double valueOne, Double valueTwo){
@@ -20,7 +19,6 @@ public class CalculatorEngine {
             } else {
                 Console.println("Err - put in a real value, dummy");
                 return result = 0.0;
-
             }
         }
         public Double squareRoot (Double valueOne) {
@@ -35,7 +33,6 @@ public class CalculatorEngine {
         public Double inverse (Double valueOne) {
             return result = 1/valueOne;
         }
-
 
     public Double getResult() {
         return result;
