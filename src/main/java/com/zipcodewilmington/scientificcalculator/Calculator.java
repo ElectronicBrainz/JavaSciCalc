@@ -10,13 +10,14 @@ import java.util.Scanner;
 public class Calculator {
 
  CalculatorEngine calcEngine = new CalculatorEngine();
+ PersonalFunctionality persFunc = new PersonalFunctionality();
  Boolean kill = false;
 
     public void run() {
         Console.println("Welcome to my calculator!");
         while (!kill) {
 
-        String operator = Console.getStringInput("Enter an Operator ( +, -, *, /, SquareRoot, Square, Exponent, Inverse or Q to quit )");
+        String operator = Console.getStringInput("Enter an Operator ( +, -, *, /, SquareRoot, Square, Exponent, Inverse or Q to quit (Listen To Many, Speak To Few)");
 
 
         switch (operator) {
@@ -62,6 +63,10 @@ public class Calculator {
             case "Inverse":
                 calcEngine.inverse(Console.getDoubleInput("Input First Value"));
                 Console.println(String.valueOf(calcEngine.getResult()));
+                break;
+
+            case "Listen To Many, Speak To Few":
+                persFunc.hamletScript();
                 break;
         }
         }
