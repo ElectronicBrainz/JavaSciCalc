@@ -16,7 +16,7 @@ public class Calculator {
         Console.println("Welcome to my calculator!");
         while (!kill) {
 
-        String operator = Console.getStringInput("Enter an Operator ( +, -, *, /, or Q to quit )");
+        String operator = Console.getStringInput("Enter an Operator ( +, -, *, /, SquareRoot, Square, Exponent, Inverse or Q to quit )");
 
 
         switch (operator) {
@@ -44,7 +44,25 @@ public class Calculator {
                 Console.println(String.valueOf(calcEngine.getResult()));
                 break;
 
+            case "SquareRoot":
+                calcEngine.squareRoot(Console.getDoubleInput("Input First Value"));
+                Console.println(String.valueOf(calcEngine.getResult()));
+                break;
 
+            case "Square":
+                calcEngine.square(Console.getDoubleInput("Input First Value"));
+                Console.println(String.valueOf(calcEngine.getResult()));
+                break;
+
+            case "Exponent":
+                calcEngine.exponent(Console.getDoubleInput("Input First Value"), Console.getDoubleInput("Input Second Value"));
+                Console.println(String.valueOf(calcEngine.getResult()));
+                break;
+
+            case "Inverse":
+                calcEngine.inverse(Console.getDoubleInput("Input First Value"));
+                Console.println(String.valueOf(calcEngine.getResult()));
+                break;
         }
         }
         }

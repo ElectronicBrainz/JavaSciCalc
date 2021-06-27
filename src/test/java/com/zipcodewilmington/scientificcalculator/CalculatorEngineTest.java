@@ -18,7 +18,7 @@ public class CalculatorEngineTest {
         Double expected = 10.0;
         Double actual = 5.0;
         //when
-        
+
         //then
         assertEquals(expected, actual);
     }

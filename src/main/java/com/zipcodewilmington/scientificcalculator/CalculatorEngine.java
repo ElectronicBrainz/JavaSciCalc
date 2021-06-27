@@ -23,7 +23,18 @@ public class CalculatorEngine {
 
             }
         }
-
+        public Double squareRoot (Double valueOne) {
+            return result = Math.sqrt(valueOne);
+        }
+        public Double square (Double valueOne) {
+            return result = valueOne * valueOne;
+        }
+        public Double exponent (Double valueOne, Double valueTwo) {
+            return result = Math.pow(valueOne, valueTwo);
+        }
+        public Double inverse (Double valueOne) {
+            return result = 1/valueOne;
+        }
 
     public Double getResult() {
         return result;
