@@ -39,7 +39,7 @@ public class CalculatorEngine {
         return state;
     }
 
-    public void setState(Double state) {
-        this.state = state;
-    }
 }
+
+
+

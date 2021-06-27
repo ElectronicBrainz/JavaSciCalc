@@ -68,7 +68,8 @@ public class Calculator {
                     break;
 
                 case "C":
-                    Console.println("                                                         "
+                    for (int i = 0; i < 50; ++i) System.out.println();
+                 /*   Console.println("                                                         "
                             + "\n" + "                                                         "
                             + "\n" + "                                                         "
                             + "\n" + "                                                         "
@@ -90,7 +91,7 @@ public class Calculator {
                             + "\n" + "                                                         "
                             + "\n" + "                                                         "
                             + "\n" + "                                                         "
-                            + "\n");
+                            + "\n"); */
                     break;
             }
         }

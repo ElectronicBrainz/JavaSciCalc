@@ -8,8 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CalculatorEngineTest {
-    CalculatorEngine calcEngine = new CalculatorEngine();
-    PersonalFunctionality persFunc = new PersonalFunctionality();
+    CalculatorEngine calcEngine;
     Double firstValue = 10.0;
     Double secondValue = 5.0;
     Double expectedValue;
@@ -19,7 +18,11 @@ public class CalculatorEngineTest {
 
     @Before
     public void setUp() throws Exception {
-
+        calcEngine = new CalculatorEngine();
+        expectedValue = 0.0;
+        actualValue = 0.0;
+        songExpValue = "";
+        songActValue = "";
     }
 
     @Test
@@ -62,6 +65,15 @@ public class CalculatorEngineTest {
         Assert.assertEquals(expectedValue, actualValue);
     }
 
+    @Test
+    public void divideZeroCheckTest() {
+        //given
+        expectedValue = 0.0;
+        //when
+        actualValue = calcEngine.divide(firstValue, 0.0);
+        //then
+        Assert.assertEquals(expectedValue, actualValue);
+    }
     @Test
     public void squareRootTest() {
         //given
@@ -147,7 +159,7 @@ public class CalculatorEngineTest {
                 "'Cause you know I'd walk a thousand miles\n" +
                 "If I could just see you\n" +
                 "If I could just hold you tonight";
-        songActValue = persFunc.song();
+        songActValue = PersonalFunctionality.song();
         Assert.assertEquals(songExpValue, songActValue);
 
     }
