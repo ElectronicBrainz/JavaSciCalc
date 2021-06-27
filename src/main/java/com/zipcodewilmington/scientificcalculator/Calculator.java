@@ -10,18 +10,18 @@ import java.util.Scanner;
 public class Calculator {
 
  CalculatorEngine calcEngine = new CalculatorEngine();
- Boolean kill = true;
+ Boolean kill = false;
 
     public void run() {
         Console.println("Welcome to my calculator!");
-        while (kill) {
+        while (!kill) {
 
         String operator = Console.getStringInput("Enter an Operator ( +, -, *, /, or Q to quit )");
 
 
         switch (operator) {
             case "Q":
-                kill = false;
+                kill = true;
                 break;
 
             case "+":

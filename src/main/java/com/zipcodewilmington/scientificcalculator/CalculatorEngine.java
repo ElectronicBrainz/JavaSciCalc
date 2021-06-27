@@ -18,7 +18,9 @@ public class CalculatorEngine {
             if (valueTwo != 0) {
                 return result = valueOne / valueTwo;
             } else {
+                Console.println("Err - put in a real value, dummy");
                 return result = 0.0;
+
             }
         }
 
