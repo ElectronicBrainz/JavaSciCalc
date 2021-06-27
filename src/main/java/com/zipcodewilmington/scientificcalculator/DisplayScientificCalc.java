@@ -2,6 +2,7 @@ package com.zipcodewilmington.scientificcalculator;
 
 public class DisplayScientificCalc {
     private String value;
+    private String memoryValue;
 
     public void setValue(String value){
         this.value = value;
@@ -15,11 +16,11 @@ public class DisplayScientificCalc {
     }
 
     public void setMemoryValue(String value){
-        this.value = value;
+        this.memoryValue = value;
     }
 
     String getMemoryValue() {
-        return this.value;
+        return this.memoryValue;
     }
 
 }

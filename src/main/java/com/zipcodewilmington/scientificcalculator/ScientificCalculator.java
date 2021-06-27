@@ -274,7 +274,7 @@ public class ScientificCalculator {
     }
 
     public Integer factorialFunction(Integer input) {
-        Integer factorial=0;
+        Integer factorial;
 
         if (input == 0) {
             factorial = 1;
@@ -282,6 +282,10 @@ public class ScientificCalculator {
         else if(input>0)
          {
             factorial = input * factorialFunction(input - 1);
+        }
+        else
+        {
+            factorial = 0;
         }
         return factorial;
     }
