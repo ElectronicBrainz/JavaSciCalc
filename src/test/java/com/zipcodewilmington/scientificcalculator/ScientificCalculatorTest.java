@@ -1,20 +1,22 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import org.junit.After;
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 class ScientificCalculatorTest {
 
-    @org.junit.jupiter.api.BeforeEach
+    @Before
     void setUp() {
     }
 
-    @org.junit.jupiter.api.AfterEach
+    @After
     void tearDown() {
     }
 
 
-    @org.junit.jupiter.api.Test
+    @Test
     void displayModeForBinary() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         Integer input = 0;
@@ -27,7 +29,7 @@ class ScientificCalculatorTest {
         //then
         Assert.assertEquals("101", result);
     }
-    @org.junit.jupiter.api.Test
+    @Test
     void displayModeForDecimal() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         Integer input = 0;
@@ -40,7 +42,7 @@ class ScientificCalculatorTest {
         //then
         Assert.assertEquals("5", result);
     }
-    @org.junit.jupiter.api.Test
+    @Test
     void displayModeForHexaDecimal() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         Integer input = 0;
@@ -53,7 +55,7 @@ class ScientificCalculatorTest {
         //then
         Assert.assertEquals("58", result);
     }
-    @org.junit.jupiter.api.Test
+    @Test
     void displayModeForOctal() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         Integer input = 0;
