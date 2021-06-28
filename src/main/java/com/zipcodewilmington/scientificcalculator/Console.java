@@ -7,6 +7,8 @@ import java.util.Scanner;
  */
 public class Console {
 
+
+
     public static void print(String output, Object... args) {
         System.out.printf(output, args);
     }
@@ -20,14 +22,18 @@ public class Console {
         println(prompt);
         String userInput = scanner.nextLine();
         return userInput;
+
+
     }
+
 
     public static Integer getIntegerInput(String prompt) {
         Scanner scanner = new Scanner(System.in);
         println(prompt);
+
         Integer userInput = 0;
         try {
-            userInput = scanner.nextInt();
+            userInput = Integer.parseInt(scanner.nextLine());
         }
         catch (Exception e)
         {
@@ -37,6 +43,17 @@ public class Console {
     }
 
     public static Double getDoubleInput(String prompt) {
-        return null;
+       double userInput = 0;
+        try {
+            Scanner scanner = new Scanner(System.in);
+            println(prompt);
+            userInput = Double.parseDouble(scanner.nextLine());
+
+        } catch (Exception e) {
+            Console.println("I thought I told you...");
+            getDoubleInput("Input Number an actual number");
+
+        }
+        return userInput;
     }
 }
