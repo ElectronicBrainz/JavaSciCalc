@@ -9,9 +9,11 @@ public class ScientificCalculator {
         DisplayScientificCalc displayScientificCalc = new DisplayScientificCalc();
         Boolean exitProgram = false;
         Boolean isValueRecalled = false;
+
         Integer number =0;
          System.out.println("Welcome to my scientific calculator!!");
         do {
+            Boolean askToSaveMemory = true;
             if(!isValueRecalled) {
                 number = Console.getIntegerInput("Enter number:");
             }
@@ -33,14 +35,17 @@ public class ScientificCalculator {
             switch (options) {
                 case "m":
                     displayScientificCalc.setMemoryValue(String.valueOf(number));
+                    askToSaveMemory = false;
                     System.out.println(displayScientificCalc.getMemoryValue()+" is Stored in memory");
                     break;
                 case "c":
                     displayScientificCalc.setMemoryValue("");
+                    askToSaveMemory = false;
                     System.out.println("Value cleared");
                     break;
                 case "r":
                     isValueRecalled = true;
+                    askToSaveMemory = false;
                     System.out.println("Value recalled - " + displayScientificCalc.getMemoryValue());
                     break;
                 case "a":
@@ -87,6 +92,7 @@ public class ScientificCalculator {
                     break;
 
                 case "f":
+                    displayScientificCalc.setValue(String.valueOf(scientificCalculator.factorialFunction(number)));
                     System.out.println("The factorial of " + number + " is:" + scientificCalculator.factorialFunction(number));
                     break;
                 case "t":
@@ -170,6 +176,11 @@ public class ScientificCalculator {
                 default:
                     System.out.println("Not a valid input!");
                     break;
+            }
+            String saveInMemory = Console.getStringInput("Do you want to save last value in memory? press y or n");
+            if(saveInMemory.equals("y") && askToSaveMemory)
+            {
+                displayScientificCalc.setMemoryValue(displayScientificCalc.getValue());
             }
         }
         while(!exitProgram);
@@ -310,6 +321,5 @@ public class ScientificCalculator {
     }
 
 }
-
 
 
