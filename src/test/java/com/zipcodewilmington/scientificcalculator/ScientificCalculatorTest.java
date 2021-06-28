@@ -317,4 +317,28 @@ class ScientificCalculatorTest {
     //then
         Assert.assertEquals(Integer.valueOf(1),resultOfFactorial);
         }
+
+    @Test
+    void customFeatureGetEulersValue() {
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        String result;
+        //given
+        Integer input = 2;
+        //when
+        result = String.valueOf(scientificCalculator.customFeatureGetEulersValue(input));
+        //then
+        Assert.assertEquals("7.38905609893065",result);
     }
+
+    @Test
+    void customFeatureGetUlpValue() {
+        ScientificCalculator scientificCalculator = new ScientificCalculator();
+        String result;
+        //given
+        Integer input = 2;
+        //when
+        result = String.valueOf(scientificCalculator.customFeatureGetUlpValue(input));
+        //then
+        Assert.assertEquals("2.3841858E-7",result);
+    }
+}

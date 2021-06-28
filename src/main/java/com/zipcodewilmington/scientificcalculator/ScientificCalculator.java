@@ -27,6 +27,8 @@ public class ScientificCalculator {
                     "Press l - To find logarithm functions of number \n" +
                     "Press t - To find Trigonometric functions of number \n" +
                     "Press d - To switch between binary,octal,hexadecimal and decimal \n" +
+                    "Press a - To find eulers value for a value \n" +
+                    "Press b - To find ulp value for a value \n" +
                     "Press e = To exit calculator");
             switch (options) {
                 case "m":
@@ -40,6 +42,14 @@ public class ScientificCalculator {
                 case "r":
                     isValueRecalled = true;
                     System.out.println("Value recalled - " + displayScientificCalc.getMemoryValue());
+                    break;
+                case "a":
+                    displayScientificCalc.setValue(scientificCalculator.customFeatureGetEulersValue(number));
+                    System.out.println("The Eulers value for "+number+" is:"+displayScientificCalc.getValue());
+                    break;
+                case "b":
+                    displayScientificCalc.setValue(scientificCalculator.customFeatureGetUlpValue(number));
+                    System.out.println("The Ulp value for "+number+" is:"+displayScientificCalc.getValue());
                     break;
                 case "d":
                     Boolean exitConversion = false;
@@ -290,6 +300,16 @@ public class ScientificCalculator {
         return factorial;
     }
 
+    public String customFeatureGetEulersValue(Integer input){
+        String result = String.valueOf(Math.exp(input));
+        return result;
+    }
+    public String customFeatureGetUlpValue(Integer input){
+        String result = String.valueOf(Math.ulp(input));
+        return result;
+    }
+
 }
+
 
 
