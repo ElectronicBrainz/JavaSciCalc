@@ -9,15 +9,20 @@ public class Calculator {
     CalculatorEngine calcEngine = new CalculatorEngine();
     PersonalFunctionality persFunc = new PersonalFunctionality();
     Boolean kill = false;
+    ScientificCalculator sciCalc = new ScientificCalculator();
+    String test[];
 
     public void run() {
         Console.println("Welcome to my calculator!");
         Console.println("Current Value is 0");
         while (!kill) {
 
-            String operator = Console.getStringInput("Enter an Operator ( +, -, *, /, SquareRoot, Square, Exponent, Inverse or Q to quit (What's Downtown?)" + "\n" + "Enter C to clear the display!");
+            String operator = Console.getStringInput("Enter an Operator ( +, -, *, /, SquareRoot, Square, Exponent, Inverse or Q to quit (What's Downtown?))" + "\n" + "Enter C to clear the display!" + "\n" + "Enter 'Scientific' to change operation");
 
             switch (operator) {
+                case "Scientific":
+                    sciCalc.main(test);
+                    break;
                 case "Q":
                     kill = true;
                     break;

@@ -5,19 +5,19 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-class ScientificCalculatorTest {
+public class ScientificCalculatorTest {
 
     @Before
-    void setUp() {
+    public void setUp() {
     }
 
     @After
-    void tearDown() {
+    public void tearDown() {
     }
 
 
     @Test
-    void displayModeForBinary() {
+    public void displayModeForBinary() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         Integer input = 0;
         String result = "";
@@ -30,7 +30,7 @@ class ScientificCalculatorTest {
         Assert.assertEquals("101", result);
     }
     @Test
-    void displayModeForDecimal() {
+    public void displayModeForDecimal() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         Integer input = 0;
         String result = "";
@@ -43,7 +43,7 @@ class ScientificCalculatorTest {
         Assert.assertEquals("5", result);
     }
     @Test
-    void displayModeForHexaDecimal() {
+    public void displayModeForHexaDecimal() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         Integer input = 0;
         String result = "";
@@ -56,7 +56,7 @@ class ScientificCalculatorTest {
         Assert.assertEquals("58", result);
     }
     @Test
-    void displayModeForOctal() {
+    public void displayModeForOctal() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         Integer input = 0;
         String result = "";
@@ -70,7 +70,7 @@ class ScientificCalculatorTest {
     }
 
     @Test
-    void switchUnitsMode() {
+    public void switchUnitsMode() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String result =scientificCalculator.switchTrigUnitsMode("degrees",8);
         Assert.assertEquals("458.3662361046586",result);
@@ -78,7 +78,7 @@ class ScientificCalculatorTest {
 
 
     @Test
-    void trigonometricFunctionsForSineDegree() {
+    public void trigonometricFunctionsForSineDegree() {
         //given
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String mode = "sine";
@@ -91,7 +91,7 @@ class ScientificCalculatorTest {
     }
 
     @Test
-    void trigonometricFunctionsForSineRadian() {
+    public void trigonometricFunctionsForSineRadian() {
         //given
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String mode = "sine";
@@ -104,7 +104,7 @@ class ScientificCalculatorTest {
     }
 
     @Test
-    void trigonometricFunctionsForCosDegrees() {
+    public void trigonometricFunctionsForCosDegrees() {
         //given
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String mode = "cosine";
@@ -116,7 +116,7 @@ class ScientificCalculatorTest {
         Assert.assertEquals("0.9902680687415704",result);
     }
     @Test
-    void trigonometricFunctionsForCosRadians() {
+    public void trigonometricFunctionsForCosRadians() {
         //given
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String mode = "cosine";
@@ -128,7 +128,7 @@ class ScientificCalculatorTest {
         Assert.assertEquals("-0.14550003380861354",result);
     }
     @Test
-    void trigonometricFunctionsForTanRadians() {
+    public void trigonometricFunctionsForTanRadians() {
         //given
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String mode = "tangent";
@@ -140,7 +140,7 @@ class ScientificCalculatorTest {
         Assert.assertEquals("-6.799711455220379",result);
     }
     @Test
-    void trigonometricFunctionsForTanDegrees() {
+    public void trigonometricFunctionsForTanDegrees() {
         //given
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String mode = "tangent";
@@ -152,7 +152,7 @@ class ScientificCalculatorTest {
         Assert.assertEquals("0.14054083470239145",result);
     }
     @Test
-    void trigonometricFunctionsForInverseTanDegrees() {
+    public void trigonometricFunctionsForInverseTanDegrees() {
         //given
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String mode = "inversetan";
@@ -164,7 +164,7 @@ class ScientificCalculatorTest {
         Assert.assertEquals("82.87498365109819",result);
     }
     @Test
-    void trigonometricFunctionsForInverseTanRadians() {
+    public void trigonometricFunctionsForInverseTanRadians() {
         //given
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String mode = "inversetan";
@@ -176,7 +176,7 @@ class ScientificCalculatorTest {
         Assert.assertEquals("1.446441332248135",result);
     }
     @Test
-    void trigonometricFunctionsForInverseSineRadians() {
+    public void trigonometricFunctionsForInverseSineRadians() {
         //given
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String mode = "inversesine";
@@ -188,7 +188,7 @@ class ScientificCalculatorTest {
         Assert.assertEquals("1.5707963267948966",result);
     }
     @Test
-    void trigonometricFunctionsForInverseSineDegrees() {
+    public void trigonometricFunctionsForInverseSineDegrees() {
         //given
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String mode = "inversesine";
@@ -200,7 +200,7 @@ class ScientificCalculatorTest {
         Assert.assertEquals("90.0",result);
     }
     @Test
-    void trigonometricFunctionsForInverseCosDegrees() {
+    public void trigonometricFunctionsForInverseCosDegrees() {
         //given
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String mode = "inversecosine";
@@ -212,7 +212,7 @@ class ScientificCalculatorTest {
         Assert.assertEquals("0.0",result);
     }
     @Test
-    void trigonometricFunctionsForInverseCosRadians() {
+    public void trigonometricFunctionsForInverseCosRadians() {
         //given
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String mode = "inversecosine";
@@ -225,7 +225,7 @@ class ScientificCalculatorTest {
     }
 
     @Test
-    void logarithmicFunctionsForNaturalLog() {
+    public void logarithmicFunctionsForNaturalLog() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
     //given
         String modeNaturalLog = "natural log";
@@ -238,7 +238,7 @@ class ScientificCalculatorTest {
     }
 
     @Test
-    void logarithmicFunctionsForInverseLog() {
+    public void logarithmicFunctionsForInverseLog() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         //given
         String modeInverseLog = "inverse log";
@@ -250,7 +250,7 @@ class ScientificCalculatorTest {
     }
 
     @Test
-    void logarithmicFunctionsForInverseNaturalLog() {
+    public void logarithmicFunctionsForInverseNaturalLog() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         //given
         String modeInverseLog = "inverse natural log";
@@ -262,7 +262,7 @@ class ScientificCalculatorTest {
     }
 
     @Test
-    void logarithmicFunctionsForLog() {
+    public void logarithmicFunctionsForLog() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         //given
         String modeInverseLog = "log";
@@ -274,7 +274,7 @@ class ScientificCalculatorTest {
     }
 
     @Test
-    void factorialFunctionForPositive() {
+    public void factorialFunctionForPositive() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         Integer resultOfFactorial;
         //given
@@ -285,7 +285,7 @@ class ScientificCalculatorTest {
         Assert.assertEquals(Integer.valueOf(24), resultOfFactorial);
     }
     @Test
-    void factorialFunctionForNegative() {
+    public void factorialFunctionForNegative() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         Integer resultOfFactorial;
         //given
@@ -296,7 +296,7 @@ class ScientificCalculatorTest {
         Assert.assertEquals(Integer.valueOf(0), resultOfFactorial);
     }
     @Test
-    void factorialFunctionForZero() {
+    public void factorialFunctionForZero() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         Integer resultOfFactorial;
     //given
@@ -308,7 +308,7 @@ class ScientificCalculatorTest {
         }
 
     @Test
-    void customFeatureGetEulersValue() {
+    public void customFeatureGetEulersValue() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String result;
         //given
@@ -320,7 +320,7 @@ class ScientificCalculatorTest {
     }
 
     @Test
-    void customFeatureGetUlpValue() {
+    public void customFeatureGetUlpValue() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
         String result;
         //given
