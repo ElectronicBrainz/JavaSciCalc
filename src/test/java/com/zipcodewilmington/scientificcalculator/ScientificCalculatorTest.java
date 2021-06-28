@@ -13,12 +13,6 @@ class ScientificCalculatorTest {
     void tearDown() {
     }
 
-    @org.junit.jupiter.api.Test
-    void switchDisplayMode() {
-        ScientificCalculator scientificCalculator = new ScientificCalculator();
-        String result = scientificCalculator.switchDisplayMode("binary");
-        Assert.assertEquals("binary",result);
-    }
 
     @org.junit.jupiter.api.Test
     void displayModeForBinary() {
@@ -76,17 +70,10 @@ class ScientificCalculatorTest {
     @Test
     void switchUnitsMode() {
         ScientificCalculator scientificCalculator = new ScientificCalculator();
-        String result =scientificCalculator.switchUnitsMode("degrees",8);
+        String result =scientificCalculator.switchTrigUnitsMode("degrees",8);
         Assert.assertEquals("458.3662361046586",result);
     }
 
-    @Test
-    void testSwitchUnitsMode() {
-        ScientificCalculator scientificCalculator = new ScientificCalculator();
-        String result =scientificCalculator.switchUnitsMode("degrees");
-        Assert.assertEquals("degrees",result);
-
-    }
 
     @Test
     void trigonometricFunctionsForSineDegree() {

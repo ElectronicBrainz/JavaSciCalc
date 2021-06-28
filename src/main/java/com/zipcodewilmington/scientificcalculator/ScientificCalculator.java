@@ -189,10 +189,6 @@ public class ScientificCalculator {
         while(!exitProgram);
 
     }
-    public String switchDisplayMode(String options) {
-
-        return options;
-    }
 
     public String conversionFunction(String mode, Integer input) {
         String displayMode = "";
@@ -213,12 +209,8 @@ public class ScientificCalculator {
         return displayMode;
     }
 
-    public String switchUnitsMode(String options) {
 
-        return options;
-    }
-
-    public String switchUnitsMode(String mode, double input) {
+    public String switchTrigUnitsMode(String mode, double input) {
         String displayMode = "";
         switch (mode) {
             case "degrees":
