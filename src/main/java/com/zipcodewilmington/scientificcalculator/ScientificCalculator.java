@@ -9,11 +9,11 @@ public class ScientificCalculator {
         DisplayScientificCalc displayScientificCalc = new DisplayScientificCalc();
         Boolean exitProgram = false;
         Boolean isValueRecalled = false;
-
+        Boolean askToSaveMemory;
         Integer number =0;
          System.out.println("Welcome to my scientific calculator!!");
         do {
-            Boolean askToSaveMemory = true;
+            askToSaveMemory = true;
             if(!isValueRecalled) {
                 number = Console.getIntegerInput("Enter number:");
             }
@@ -177,10 +177,13 @@ public class ScientificCalculator {
                     System.out.println("Not a valid input!");
                     break;
             }
-            String saveInMemory = Console.getStringInput("Do you want to save last value in memory? press y or n");
-            if(saveInMemory.equals("y") && askToSaveMemory)
+
+            if(askToSaveMemory == true)
             {
-                displayScientificCalc.setMemoryValue(displayScientificCalc.getValue());
+                String saveInMemory = Console.getStringInput("Do you want to save last value in memory? press y or n");
+                if(saveInMemory.equals("y")) {
+                    displayScientificCalc.setMemoryValue(displayScientificCalc.getValue());
+                }
             }
         }
         while(!exitProgram);
