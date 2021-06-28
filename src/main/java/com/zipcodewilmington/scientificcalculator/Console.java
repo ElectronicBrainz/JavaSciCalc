@@ -30,9 +30,16 @@ public class Console {
     public static Integer getIntegerInput(String prompt) {
         Scanner scanner = new Scanner(System.in);
         println(prompt);
-        int userInput = Integer.parseInt(scanner.nextLine());
-        return userInput;
 
+        Integer userInput = 0;
+        try {
+            userInput = Integer.parseInt(scanner.nextLine());
+        }
+        catch (Exception e)
+        {
+            System.out.println("Enter a valid number!");
+        }
+        return userInput;
     }
 
     public static Double getDoubleInput(String prompt) {
